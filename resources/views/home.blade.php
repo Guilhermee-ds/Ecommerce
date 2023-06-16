@@ -14,9 +14,9 @@
         <a href="#" class="navbar-brand">MyShop</a>
         <div class="collapse navbar-collapse mr-auto">
             <div class="navbar-nav">
-                <a class="nav-link" href="#">HOME</a>
-                <a class="nav-link" href="#">Categorias</a>
-                <a class="nav-link" href="#">Cadastrar</a>
+                <a class="nav-link" href="{{route('home')}}">HOME</a>
+                <a class="nav-link" href="{{route('categoria')}}">Categorias</a>
+                <a class="nav-link" href="{{route('cadastrar')}}">Cadastrar</a>
             </div>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
