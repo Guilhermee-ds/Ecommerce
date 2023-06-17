@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categoria;
+use App\Models\Produto;
+
+
 
 class ProdutoController extends Controller
 {
@@ -11,15 +15,24 @@ class ProdutoController extends Controller
 
         //Buscar  todos os produtos
         //Select * from produtos
-        $listaProdutos = \App\Models\Produto:: all();
+        $listaProdutos = Produto:: all();
         $data["lista"] = $listaProdutos;
 
         return view("home",$data);
     }
 
-    public function categoria(request $request){
-        $data  =[];
+    public function categoria($idcategoria = null, Request $request)
+    {
+        // Seleciona todas as categorias
+        $listaCategorias = Categoria::all();
 
-        return view("categoria",$data);
+        // Seleciona todos os produtos da categoria (se $idcategoria não for nulo)
+        $listaProdutos = [];
+        if ($idcategoria != null) {
+            $listaProdutos = Produto::where("categoria_id", $idcategoria)->get();
+        }
+
+        // Passa as variáveis para a view
+        return view("categorias", ["listaCategoria" => $listaCategorias, "lista" => $listaProdutos]);
     }
 }

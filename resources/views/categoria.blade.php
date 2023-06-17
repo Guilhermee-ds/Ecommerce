@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyShop - Categorias</title>
-</head>
-<body>
+@extends("layout")
+@section("conteudo")
+
     <h2>Categorias</h2>
-</body>
-</html>
+
+    @if (isset($listaCategoria) && count($listaCategoria) > 0)
+        <ul>
+            @foreach ($listaCategoria as $cat )
+                <li> <a href="{{route('categoria_por_id',['idcategoria'=>$cat->id])}}">{{$cat->categoria}}</a></li>
+            @endforeach
+        </ul>
+    @endif
+
+    @include("_produtos",['lista'=>$lista])
+@endsection
