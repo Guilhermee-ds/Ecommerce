@@ -21,18 +21,46 @@ class ProdutoController extends Controller
         return view("home",$data);
     }
 
-    public function categoria($idcategoria = null, Request $request)
+    public function categoria($idcategoria = 0, Request $request)
     {
         // Seleciona todas as categorias
         $listaCategorias = Categoria::all();
 
         // Seleciona todos os produtos da categoria (se $idcategoria não for nulo)
         $listaProdutos = [];
-        if ($idcategoria != null) {
+        if ($idcategoria != 0) {
             $listaProdutos = Produto::where("categoria_id", $idcategoria)->get();
         }
 
         // Passa as variáveis para a view
         return view("categorias", ["listaCategoria" => $listaCategorias, "lista" => $listaProdutos]);
     }
+
+    public function adicionarCarrinho($listaProduto=0, Request $requeste){
+
+        //Buscar o produto pelo id
+
+        $prod = Produto::find($listaProduto );
+
+        if ($prod){
+            //Encontrou o produto
+
+            //  Bucar a secao
+
+            $carrinho = session('cart',[]);
+
+
+            array_push($carrinho, $prod);
+            session(['cart'=> $carrinho]);
+
+        }
+
+        return redirect() ->route("home");
+    }
+    public function verCarrinho(Request $request){
+        $carrinho = session('cart',[]);
+        dd($carrinho);
+
+    }
 }
+
