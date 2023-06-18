@@ -26,107 +26,20 @@
 
     <div class="container">
         <div class="row">
+            @if(isset($lista))
+                @foreach($lista as $prod)
             <div class="col-3 mb-3">
                 <div Class="card">
-                    <img src="{{asset('images/produto1.jpg')}}" class="card-img-top"/>
+                    <img src="{{asset($prod->foto)}}" class="card-img-top"/>
                     <div class="card-body">
-                        <h6 class="card-title">Produto 1</h6>
+                        <h6 class="card-title">{{prod->nome}} - {{$prod-valor}}</h6>
                         <a href="#" class="btn btn-sm btn-secondary">Adicionar Item</a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-3 mb-3">
-                <div Class="card">
-                    <img src="{{asset('images/produto2.jpg')}}" class="card-img-top"/>
-                    <div class="card-body">
-                        <h6 class="card-title">Produto 2</h6>
-                        <a href="#" class="btn btn-sm btn-secondary">Adicionar Item</a>
                     </div>
                 </div>
             </div>
-
-            <div class="col-3 mb-3">
-                <div Class="card">
-                    <img src="{{asset('images/produto3.jpg')}}" class="card-img-top"/>
-                    <div class="card-body">
-                        <h6 class="card-title">Produto 3</h6>
-                        <a href="#" class="btn btn-sm btn-secondary">Adicionar Item</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 mb-3">
-                <div Class="card">
-                    <img src="{{asset('images/produto4.jpg')}}" class="card-img-top"/>
-                    <div class="card-body">
-                        <h6 class="card-title">Produto 4</h6>
-                        <a href="#" class="btn btn-sm btn-secondary">Adicionar Item</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 mb-3">
-                <div Class="card">
-                    <img src="{{asset('images/produto5.jpg')}}" class="card-img-top"/>
-                    <div class="card-body">
-                        <h6 class="card-title">Produto 5</h6>
-                        <a href="#" class="btn btn-sm btn-secondary">Adicionar Item</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 mb-3">
-                <div Class="card">
-                    <img src="{{asset('images/produto6.jpg')}}" class="card-img-top"/>
-                    <div class="card-body">
-                        <h6 class="card-title">Produto 6</h6>
-                        <a href="#" class="btn btn-sm btn-secondary">Adicionar Item</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 mb-3">
-                <div Class="card">
-                    <img src="{{asset('images/produto7.jpg')}}" class="card-img-top"/>
-                    <div class="card-body">
-                        <h6 class="card-title">Produto 7</h6>
-                        <a href="#" class="btn btn-sm btn-secondary">Adicionar Item</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 mb-3">
-                <div Class="card">
-                    <img src="{{asset('images/produto8.jpg')}}" class="card-img-top"/>
-                    <div class="card-body">
-                        <h6 class="card-title">Produto 8</h6>
-                        <a href="#" class="btn btn-sm btn-secondary">Adicionar Item</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 mb-3">
-                <div Class="card">
-                    <img src="{{asset('images/produto9.jpg')}}" class="card-img-top"/>
-                    <div class="card-body">
-                        <h6 class="card-title">Produto 9</h6>
-                        <a href="#" class="btn btn-sm btn-secondary">Adicionar Item</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-3">
-                <div Class="card">
-                    <img src="{{asset('images/produto10.jpg')}}" class="card-img-top"/>
-                    <div class="card-body">
-                        <h6 class="card-title">Produto 10</h6>
-                        <a href="#" class="btn btn-sm btn-secondary">Adicionar Item</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+            @endforeach
+            @endif
 
 </body>
 </html>

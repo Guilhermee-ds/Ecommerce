@@ -15,7 +15,7 @@ class ProdutoController extends Controller
 
         //Buscar  todos os produtos
         //Select * from produtos
-        $listaProdutos = Produto:: all();
+        $listaProdutos = Produto::all();
         $data["lista"] = $listaProdutos;
 
         return view("home",$data);
